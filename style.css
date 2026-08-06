@@ -9,7 +9,7 @@ body {
 
 header {
   background-attachment: rgb(243, 200, 200);
-  width: 412px;
+  width: 408px;
   height: 150px;
   margin-bottom: 10px;
   margin: auto;
@@ -22,10 +22,9 @@ header img {
 
 main {
   background-color: white;
-  width: 412px;
+  width: 408px;
   height: 1900px;
   margin: auto;
-  border: 2px solid black;
 }
 
 #s1 {
@@ -54,13 +53,13 @@ main {
 }
 
 #s3 {
-  width: 412px;
+ width: 408px;
   margin: auto;
   text-align: center;
 }
 
 #s4 {
-  width: 412px;
+ width: 408px;
   margin: auto;
   text-align: center;
 }
@@ -68,7 +67,8 @@ main {
 
 
 p {
-  font-size: 14px;
+  padding: 10px;
+  font-size: 16px;
   text-align: center;
   display: inline;
   font-weight: 300;
