@@ -1,7 +1,7 @@
 const pix = document.getElementById("pix").innerHTML;
 const mpix = document.getElementById("mpix");
 
-const API_URL = "https://presentesbig.lovable.app";
+//const API_URL = "https://presentesbig.lovable.app";
 
 
 
@@ -53,10 +53,9 @@ const presentesBig={
 
 
 const PIX_CONFIG = {
-  chave: "vianagui355@gmail.com",
-
-  nome: "Guilherme Viana",
-  cidade: "SAO PAULO"
+    chave: "vianagui355@gmail.com",
+    nome: "Guilherme Viana",
+    cidade: "SAO PAULO"
 };
 
 function crc16(payload) {
@@ -86,25 +85,38 @@ function emv(id, value) {
 
 function gerarPixLocal(valor, descricao) {
 
-    const gui = emv("00", "BR.GOV.BCB.PIX");
+    // Limites da especificação Pix
+    const nome = PIX_CONFIG.nome.substring(0, 25);
+    const cidade = PIX_CONFIG.cidade.substring(0, 15);
+    const desc = descricao.substring(0, 25);
 
-    const chave = emv("01", PIX_CONFIG.chave);
+    // TxId único
+    const txid = Date.now().toString();
 
-    const merchantAccount = emv("26", gui + chave);
+    const merchantAccount =
+        emv(
+            "26",
+            emv("00", "BR.GOV.BCB.PIX") +
+            emv("01", PIX_CONFIG.chave)
+        );
+
+    const additionalData =
+        emv(
+            "62",
+            emv("05", txid)
+        );
 
     const payload =
-        emv("00", "01") +
-        emv("01", "12") +
+        emv("00", "01") +              // Payload Format Indicator
+        emv("01", "12") +              // Pix estático
         merchantAccount +
         emv("52", "0000") +
-        emv("53", "986") +
+        emv("53", "986") +             // BRL
         emv("54", valor.toFixed(2)) +
         emv("58", "BR") +
-        emv("59", PIX_CONFIG.nome) +
-        emv("60", PIX_CONFIG.cidade) +
-        emv("62",
-            emv("05", descricao)
-        ) +
+        emv("59", nome) +
+        emv("60", cidade) +
+        additionalData +
         "6304";
 
     return payload + crc16(payload);
