@@ -133,11 +133,8 @@ function gerarPixLocal(valor) {
         emv("62", emv("05", "***")) +
         "6304";
 
-        const finalPix = payload + crc16(payload);
-console.log(finalPix);
-return finalPix;
 
-   //return payload + crc16(payload);
+   return payload + crc16(payload);
 }
 
 async function comprarlocal(presenteId) {
