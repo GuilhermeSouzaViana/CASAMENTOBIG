@@ -61,7 +61,7 @@ Convidamos você a assistir a um pouco da nossa história.</p>
     <img src="./img/lua de mel dos sonhos.webp">
     <h5>Lua de Mel dos Sonhos</h5>
     <p>R$ 1997 reais</p> <br>
-    <button>Comprar</button>
+    <button onclick="comprar('1594134c-59b6-4904-8b7c-9c74e689db38')">Comprar</button>
     </div>
 </div>
 <!------------------------------------------>
@@ -132,15 +132,44 @@ Convidamos você a assistir a um pouco da nossa história.</p>
 </div>
 <!------------------------------------------>
 
+<div id="area-pix">
+
+
+    <div id="mpix" >Pix copiado</div>
+
+    <aside class="pix-box">
+
+        <button class="fechar-pix" onclick="fecharPix()">×</button>
+
+        <h2>Pagamento Pix</h2>
+
+        <span>Escaneie o QR Code ou copie o código abaixo</span>
+
+        <img id="qrcode">
+
+        <aside class="pix-codigo">
+            <p id="pix"></p>
+        </aside>
+
+        <button class="copiar-btn" onclick="copiarPix()">
+            Copiar Pix
+        </button>
+
+    </aside>
+
+</div>
+
+
+
 <p id="final">Levaremos esse carinho conosco enquanto construímos nossa história juntos.</p>
 
 </article>
 
 
    <!-- disponibilizamos nossa chave Pix abaixo.
-<h4 id="pix">vianagui355@gmail.com</h4> <button id="eb" onclick="copiarPix()">Copiar Pix</button>-->
+<h4 id="pix">vianagui355@gmail.com</h4> <button id="eb" onclick="copiarPix()">Copiar Pix</button>
 
-<div id="mpix">Pix copiado</div>
+-->
 
 <br>
 
@@ -151,6 +180,10 @@ Convidamos você a assistir a um pouco da nossa história.</p>
 <footer>
 
 <h1>Maria Beatriz & Guilherme</h1>
+
+ <div id="loading-pix">
+    <img src="./img/botao-carregando-pagamento.gif" alt="">
+    </div>
 
 </footer>
 
