@@ -7,11 +7,19 @@ const mpix = document.getElementById("mpix");
 
 function playHistoria(){
 
-let video = document.getElementById("video");
+    let video = document.getElementById("video");
 
-video.play();
+    if(!video){
+        return;
+    }
 
-video.requestFullscreen();
+    video.play().catch(()=>{});
+
+    if(video.requestFullscreen){
+
+        video.requestFullscreen().catch(()=>{});
+
+    }
 
 }
 
@@ -88,7 +96,7 @@ function gerarPixLocal(valor, descricao) {
     // Limites da especificação Pix
     const nome = PIX_CONFIG.nome.substring(0, 25);
     const cidade = PIX_CONFIG.cidade.substring(0, 15);
-    const desc = descricao.substring(0, 25);
+    
 
     // TxId único
     const txid = Date.now().toString();
