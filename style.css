@@ -280,7 +280,7 @@ video{
 
 #mpix{
   width: 120px;
-  font-size:12px;
+  font-size:16px;
   margin: auto;
   margin-left: 50px;
   margin-top: 190px;
@@ -288,7 +288,7 @@ video{
   position: fixed;
   background: #222;
   color: rgb(255, 255, 255);
-  height: 37px;
+  height: 30px;
   padding: 3px;
   border-radius: 8px;
   opacity: 0;

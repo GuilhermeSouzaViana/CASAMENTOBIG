@@ -35,16 +35,18 @@ function fecharPix() {
 
 function copiarPix() {
 
-    const codigo = document.getElementById("pix").textContent;
+    const codigo = document
+        .getElementById("pix")
+        .textContent
+        .trim();
 
     navigator.clipboard.writeText(codigo);
 
     mpix.style.opacity = "1";
 
-  setTimeout(() => {
-
-    mpix.style.opacity = "0";
-  }, 1500);
+    setTimeout(() => {
+        mpix.style.opacity = "0";
+    }, 1500);
 
 }
 
@@ -66,14 +68,17 @@ const PIX_CONFIG = {
     cidade: "SAO PAULO"
 };
 
-function crc16(payload) {
+function crc16(str) {
+
     let crc = 0xFFFF;
 
-    for (let c = 0; c < payload.length; c++) {
-        crc ^= payload.charCodeAt(c) << 8;
+    for (let i = 0; i < str.length; i++) {
 
-        for (let i = 0; i < 8; i++) {
-            if ((crc & 0x8000) !== 0) {
+        crc ^= str.charCodeAt(i) << 8;
+
+        for (let j = 0; j < 8; j++) {
+
+            if (crc & 0x8000) {
                 crc = (crc << 1) ^ 0x1021;
             } else {
                 crc <<= 1;
@@ -87,47 +92,52 @@ function crc16(payload) {
 }
 
 function emv(id, value) {
-    const size = value.length.toString().padStart(2, "0");
-    return id + size + value;
+
+    value = String(value).trim();
+
+    const tamanho = new TextEncoder().encode(value).length;
+
+    return id +
+           tamanho.toString().padStart(2, "0") +
+           value;
 }
 
-function gerarPixLocal(valor, descricao) {
+function gerarPixLocal(valor) {
 
-    // Limites da especificação Pix
-    const nome = PIX_CONFIG.nome.substring(0, 25);
-    const cidade = PIX_CONFIG.cidade.substring(0, 15);
-    
+    const chave = PIX_CONFIG.chave.trim();
 
-    // TxId único
-    const txid = Date.now().toString();
+    const nome = PIX_CONFIG.nome
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .substring(0, 25);
 
-    const merchantAccount =
+    const cidade = PIX_CONFIG.cidade
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .substring(0, 15);
+
+    const payload =
+        emv("00", "01") +
+        emv("01", "12") +
         emv(
             "26",
             emv("00", "BR.GOV.BCB.PIX") +
-            emv("01", PIX_CONFIG.chave)
-        );
-
-    const additionalData =
-        emv(
-            "62",
-            emv("05", txid)
-        );
-
-    const payload =
-        emv("00", "01") +              // Payload Format Indicator
-        emv("01", "12") +              // Pix estático
-        merchantAccount +
+            emv("01", chave)
+        ) +
         emv("52", "0000") +
-        emv("53", "986") +             // BRL
-        emv("54", valor.toFixed(2)) +
+        emv("53", "986") +
+        emv("54", Number(valor).toFixed(2)) +
         emv("58", "BR") +
         emv("59", nome) +
         emv("60", cidade) +
-        additionalData +
+        emv("62", emv("05", "***")) +
         "6304";
 
-    return payload + crc16(payload);
+        const finalPix = payload + crc16(payload);
+console.log(finalPix);
+return finalPix;
+
+   //return payload + crc16(payload);
 }
 
 async function comprarlocal(presenteId) {
@@ -146,7 +156,6 @@ async function comprarlocal(presenteId) {
 
         const codigoPix = gerarPixLocal(
             presente.valor,
-            presente.nome
         );
 
         document.getElementById("pix").textContent = codigoPix;
