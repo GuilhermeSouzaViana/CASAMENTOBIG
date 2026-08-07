@@ -279,17 +279,17 @@ video{
 }
 
 #mpix{
-  width: 100px;
-  font-size:18px;
+  width: 75px;
+  font-size:12px;
   margin: auto;
   margin-left: 110px;
-  margin-top: 230px;
+  margin-top: 180px;
   background-color: #030303;
   position: fixed;
   background: #222;
   color: rgb(255, 255, 255);
-  height: 38px;
-  padding: 5px;
+  height: 25px;
+  padding: 3px;
   border-radius: 8px;
   opacity: 0;
   transition: 1s;

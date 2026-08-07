@@ -53,7 +53,7 @@ async function comprar(presenteId) {
 
             document.getElementById("area-pix").style.display = "flex";
 
-        }, 500);
+        }, 300);
 
 
     } catch {
