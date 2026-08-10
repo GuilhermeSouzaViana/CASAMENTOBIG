@@ -219,6 +219,7 @@ video{
     background:rgba(231, 230, 230, 0.9);
     justify-content:center;
     z-index:99999;
+    border-radius: 10px;
 }
 
 
@@ -277,12 +278,13 @@ video{
 
 .fechar-pix {
     position:absolute;
-    margin-left:100px;
+    margin-left:80px;
     margin-top:-10px;
     background:none;
     border:0;
     font-size:35px;
     color: #ff0000;
+    width: 30px;
 }
 
 #mpix{
