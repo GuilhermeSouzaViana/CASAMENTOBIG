@@ -8,12 +8,12 @@ html {
 }
 
 body {
-  background-color: rgb(82, 74, 74);
+  background-color: rgb(252, 252, 252);
 }
 
 header {
-  background-attachment: rgb(243, 200, 200);
- width: 100%;
+
+  width: 100%;
     max-width: 408px;
   height: 150px;
   margin-bottom: 10px;
@@ -26,6 +26,7 @@ header img {
 }
 
 main {
+  border: 3px solid black;
   background-color: white;
 width: 100%;
     max-width: 408px;
