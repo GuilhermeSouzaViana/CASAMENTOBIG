@@ -143,14 +143,12 @@ article{
 
 article div{
     width: 203px;
-    height: 200px;
+    height: 215px;
     margin-bottom: 5px;
     box-sizing: border-box;
 
     background: #fff;
-    
-    border-radius: 8px;
-    border: 2px solid rgb(235, 235, 235);
+  
 }
 
 article img{
@@ -164,13 +162,13 @@ article img{
 
 article h5{
     margin: 0;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1.2;
+    font-size: 16px;
+    height: 37px;
     color: #222;
+
 }
 
-article p{
+article div p{
     margin: 3px 0;
     font-size: 15px;
     font-weight: bold;
@@ -179,7 +177,7 @@ article p{
 
 article button{
     padding: 3px 8px;
-    font-size: 11px;
+    font-size: 15px;
     border: 0;
     border-radius: 4px;
     background: #2d7cf6;
@@ -327,9 +325,9 @@ video{
 @media (max-width: 430px) {
 article div{
     width: 185px;
-    height: 190px;
+    height: 200px;
     margin: auto;
-    border: none;
+  
 }
 
 article img{
@@ -343,10 +341,10 @@ article h5,p{
 
 }
 
-@media (max-width: 356px) {
+@media (max-width: 386px) {
 article div{
     width: 170px;
-    height: 180px;
+    height: 200px;
     margin: auto;
 }
 
@@ -363,18 +361,17 @@ article img{
 
   article div{
     width: 203px;
-    height: 200px;
+    height: 220px;
     margin-bottom: 5px;
     box-sizing: border-box;
 
     background: #fff;
-    
- border: none;
+
 }
 
 article img{
     width: 77%;
-    height: 110px;
+    height: 130px;
     object-fit: cover;
     display: block;
     margin:auto;

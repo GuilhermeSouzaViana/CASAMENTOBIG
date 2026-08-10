@@ -51,14 +51,16 @@ function copiarPix() {
 }
 
 const presentesBig={
-1:{nome:"Lua de mel",valor: 1.00},
-2:{nome:"Kit Sobrevivência do Primeiro Ano",valor:2.00},
-3:{nome:"Decoração da Nossa Casa",valor: 3.00},
-4:{nome:"Rolo de macarrão",valor: 4.00},
-5:{nome:"Capacete contra rolo de macarrão",valor: 5.00},
-6:{nome:"Manual do Marido/Esposa",valor: 6.00},
-7:{nome:"Conjunto avental de casal",valor: 7.00},
-8:{nome:"Vasos para plantas",valor: 8.00}
+1:{nome:"Ajuda na fatura do cartão",valor: 497.00},
+2:{nome:"Kit Sobrevivência do Primeiro Ano",valor:347.00},
+3:{nome:"Decoração da Nossa Casa",valor: 197.00},
+4:{nome:"Rolo de macarrão",valor: 169.00},
+5:{nome:"Capacete contra rolo de macarrão",valor: 247.00},
+6:{nome:"Fundo “depois a gente vê como paga",valor: 99.00},
+7:{nome:"Conjunto avental de casal",valor: 79.00},
+8:{nome:"Pipoca para a primeira maratona",valor: 39.00},
+9:{nome:"Chocolate para garantir o perdão",valor: 47.00},
+10:{nome:"Faxina para manter a paz no lar",valor: 147.00}
 }
 
 
