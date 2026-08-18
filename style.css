@@ -42,8 +42,8 @@ width: 100%;
 
 #s1 img {
   padding: 2px;
-  height: 195px;
-  width: 120px;
+  height: 250px;
+  width: 155px;
   margin-right: 10px;
   border-radius: 10px;
 }
@@ -60,8 +60,8 @@ width: 100%;
 }
 
 #s3 {
-width:80%;
-max-width: 300px;
+width:85%;
+max-width: 350px;
   margin: auto;
   text-align: center;
 }
