@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+img {
+  filter: grayscale(100%);
+}
+
 html {
     overflow-y: scroll;
 }
