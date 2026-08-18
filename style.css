@@ -51,6 +51,7 @@ width: 100%;
 #s2 {
   text-align: center;
   width: 100%;
+  margin-bottom: 5px;
 }
 
 #s2 img {
@@ -59,8 +60,8 @@ width: 100%;
 }
 
 #s3 {
-width: 100%;
-    max-width: 408px;
+width:80%;
+max-width: 300px;
   margin: auto;
   text-align: center;
 }
