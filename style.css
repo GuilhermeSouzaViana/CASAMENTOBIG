@@ -7,6 +7,10 @@
   filter: grayscale(100%);
 }
 
+img {
+   user-select: none;
+    -webkit-user-drag: none;
+}
 
 html {
     overflow-y: scroll;
